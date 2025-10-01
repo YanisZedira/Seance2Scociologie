@@ -329,27 +329,51 @@
       <section class="card" id="densite">
         <div class="copybar"><button class="btn ghost" data-copy="#densite">📋 Copier</button></div>
         <h2>Densité d’un graphe — formules</h2>
+        <h3>Densité d’un graphe Non-orienté</h3>
+        <p>▶ La densité est le rapport entre le nombre réel d’arcs/arêtes et le nombre d’arcs/arêtes maximal d’un graphe.
+        <p>▶ La densité varie entre 0 et 1.</p>
         <!-- IMAGE À INSÉRER — Densité (diapo 26–29) -->
-        <img src="images/densite.png" alt="Illustrations de la densité (non-orienté & orienté)" class="illu">
+        <img src="images/densite.png" alt="Illustrations de la densité (non-orienté & orienté)" class="illu"><br>
+        <p>▶ Dans ce graphe, il y a quatre arêtes</p>
+        <p>▶ Au maximum, il peut y en avoir six</p>
+        <p>▶ La densité vaut ainsi 4/6 =2/3 = 0, 66 ̇ </p><br>
+        
+        <h3>Densité dans un graphe Non-orienté (2)</h3>
+        <p>On note N le nombre de sommets et A le nombre d’arêtes réels,
+          Plus généralement, la densité, dans un graphe non-orienté, vaut :</p>
+            
+        <img src="images/densite-non-oriente.png" alt="formule" class="illu"><br>
+        <img src="images/densite.png" alt="Illustrations de la densité (non-orienté & orienté)" class="illu"><br>
 
-        <h3>Non-orienté</h3>
-        <p>Notons <span class="mono">N</span> le nombre de sommets, <span class="mono">A</span> le nombre d’arêtes réelles :</p>
-        <p class="equation mono">D = A / ( N × (N − 1) / 2 )</p>
-        <p class="mono">Exemple diapo : 4 sommets, 4 arêtes → <span class="equation">D = 4/6 = 2/3 = 0,66̇</span>.</p>
+        <h3>Densité dans un graphe orienté (1)</h3>
+        <p>On note N le nombre de sommets et A le nombre d’arêtes réels,
+          Le nombre d’arcs maximal vaut N(N − 1) et la densité est égal à :</p><br>
+          <img src="images/densite-oriente.png" alt="formule" class="illu"><br>
+          <img src="images/image-oriente.png" alt="formule" class="illu"><br>
 
-        <h3>Orienté</h3>
-        <p>Nombre d’arcs maximal <span class="mono">N(N − 1)</span> ; densité :</p>
-        <p class="equation mono">D = A / ( N × (N − 1) )</p>
-        <p class="mono">Exemple diapo : N=4, A=5 → <span class="equation">D = 5/12 = 0,4166…</span>. </p>
+        <h3>Densité dans un graphe orienté (2)</h3>
+
+        <p>Dans ce graphe :</p>
+        <p>▶ Le nombre maximal d’arcs vaut :</p>
+        <p>N × (N − 1) = 4 × (4 − 1) = 4 × 3 = 12</p><br>
+        <p>▶ Il y a cinq arcs,  La densité vaut donc :</p><br>
+        <img src="images/total.png" alt="formule" class="illu"><br>
+
+        
       </section>
 
       <!-- ===== Clique ===== -->
       <section class="card" id="clique">
         <div class="copybar"><button class="btn ghost" data-copy="#clique">📋 Copier</button></div>
         <h2>Graphe complet / Clique</h2>
+        <h3>Graphe complet/clique (1)</h3><br>
         <p><strong>Définition</strong> : un graphe où <em>tous</em> les arcs/arêtes possibles existent est une <em>clique</em> (graphe complet). Un sous-ensemble de sommets peut former une <em>sous-clique</em>. </p>
         <!-- IMAGE À INSÉRER — Clique (diapo 30–31) -->
-        <img src="images/clique.png" alt="Exemples de graphe complet et de sous-clique" class="illu">
+        <img src="images/clique.png" alt="Exemples de graphe complet et de sous-clique" class="illu"><br>
+        <p>Ce graphe n’est pas complet. Le sous-graphe constitué de A, B et
+          D constitue toutefois une (sous-)clique.</p>
+
+          <h3>Graphe complet/clique (2)</h3><br>
         <img src="images/clique1.png" alt="Exemples de graphe complet et de sous-clique1" class="illu">
       </section>
 
@@ -357,9 +381,11 @@
       <section class="card" id="connexite">
         <div class="copybar"><button class="btn ghost" data-copy="#connexite">📋 Copier</button></div>
         <h2>Connexité</h2>
+        <h3>Connexité (1)</h3><br>
         <p>Un graphe est <strong>connexe</strong> si, pour chaque couple de sommets, il existe une chaîne permettant de les relier. </p>
         <!-- IMAGE À INSÉRER — Connexité (diapo 32–33) -->
-        <img src="images/connexite.png" alt="Exemples de graphes connexes et non connexes" class="illu">
+        <img src="images/connexite.png" alt="Exemples de graphes connexes et non connexes" class="illu"><br>
+        <h3>Connexité (2)</h3><br>
         <img src="images/connexite1.png" alt="Exemples de graphes connexes et non connexes" class="illu">
       </section>
 
@@ -374,81 +400,14 @@
           </ul>
         </div>
         <!-- IMAGE À INSÉRER — Matrice 4×4 (diapo 38) -->
+         <center>▶ Voici un exemple de matrice d’adjacence :</center>
         <img src="images/matrice-4x4.png" alt="Exemple de matrice d’adjacence 4×4" class="illu">
         <!-- IMAGE À INSÉRER — Graphe + matrice (diapo 39) -->
         <img src="images/graphe-et-matrice.png" alt="Un graphe et sa matrice d’adjacence 4×4" class="illu">
+        <center>Un graphe et sa matrice d'adjacence</center>
       </section>
 
-      <!-- ===== Exercice 1 : Schéma récapitulatif ===== -->
-      <section class="card" id="exo-schema">
-        <h2>Exercice — Schéma récapitulatif (corrigé détaillé)</h2>
-        <!-- IMAGE À INSÉRER — Schéma de la diapo 34 -->
-        <img src="images/exo-schema.png" alt="Schéma récapitulatif du graphe (diapo 34)" class="illu">
-        <p class="meta">Questions : diapo 35. </p>
-
-        <h3>Réponses (avec justifications)</h3>
-        <ol>
-          <li><strong>Ordre du graphe</strong> : égal au <em>nombre de sommets</em> visibles sur le schéma. <br>
-              <em>Démarche</em> : compter chaque nœud étiqueté (A, B, C, …). Le schéma montre de très nombreux sommets ; l’ordre <span class="mono">N</span> est le total de ces étiquettes (ex. si tu comptes 30 étiquettes, alors <span class="mono">N=30</span>). L’ordre ne figure pas textuellement dans la diapo, il dépend du comptage visuel. 
-          </li>
-          <li><strong>Orienté ou non-orienté ?</strong> : <u>orienté</u>. <br>
-              <em>Justification</em> : la légende “Choice/Mutual choice” indique des flèches (choix dirigés) ; une réciprocité éventuelle est marquée comme “mutual” (donc deux arcs opposés). 
-          </li>
-          <li><strong>Connexité</strong> : <u>connexe</u> (au sens du graphe sous-jacent non orienté). <br>
-              <em>Justification</em> : en ignorant l’orientation, on observe des chaînes reliant les différents groupes au noyau supérieur (notamment via le nœud central “L” relié à de nombreux sommets), ce qui assure l’existence d’un chemin entre toute paire de sommets. 
-          </li>
-          <li><strong>Individus centraux</strong> : <u>L</u> est particulièrement central ; des sommets intermédiaires (p. ex. <em>K</em>, <em>E</em>) jouent des rôles d’interconnexion entre sous-groupes. <br>
-              <em>Justification</em> : la centralité visuelle (degré élevé et position de passage vers d’autres zones du graphe) est manifeste : de nombreux arcs incidents sur L, et plusieurs chemins entre sous-ensembles passent par L (intermédiarité). 
-          </li>
-          <li><strong>Clique</strong> : le graphe complet global n’est <u>pas</u> réalisé (toutes les paires ne sont pas reliées dans les deux sens). En revanche, on peut repérer des <u>sous-cliques</u> locales (petits sous-ensembles densément interconnectés par des choix mutuels). <br>
-              <em>Justification</em> : la diapo 30–31 définit la clique et illustre un sous-graphe complet ; sur le schéma, on repère des triades à choix mutuels, mais l’ensemble global est trop grand et clairsemé pour être complet. 
-          </li>
-        </ol>
-      </section>
-
-      <!-- ===== Exercice 2 : Matrice 5×5 (corrigé calculé) ===== -->
-      <section class="card" id="exo-matrice">
-        <h2>Exercice — Matrice d’adjacence 5×5 (corrigé calculé)</h2>
-        <!-- IMAGE À INSÉRER — Matrice 5×5 (diapo 40) -->
-        <img src="images/exo-matrice.png" alt="Matrice d’adjacence 5×5 de l’exercice (diapo 40)" class="illu">
-        <p class="meta">Matrice (diapo 40) : </p>
-        <pre class="mono">
-⎡ 0 1 1 1 0 ⎤
-⎢ 0 0 1 1 0 ⎥
-⎢ 1 0 0 0 0 ⎥
-⎢ 1 0 0 0 1 ⎥
-⎣ 0 1 1 1 0 ⎦
-        </pre>
-
-        <h3>Corrections détaillées</h3>
-        <ol>
-          <li><strong>Orienté ou non-orienté ?</strong> : <u>orienté</u>.  
-              <em>Justification</em> : la matrice n’est pas symétrique (ex. a<sub>1,2</sub>=1 alors que a<sub>2,1</sub>=0), donc les relations ne sont pas toutes réciproques.</li>
-
-          <li><strong>Représentation du graphe</strong> : 5 sommets {1,2,3,4,5} ; arcs sortants selon chaque ligne.  
-              Exemple (extraits) : 1→{2,3,4}, 2→{3,4}, 3→{1}, 4→{1,5}, 5→{2,3,4}.</li>
-
-          <li><strong>Ordre du graphe</strong> : <span class="mono">N = 5</span> (5 lignes/colonnes).</li>
-
-          <li><strong>Degrés (orienté : ext./int.)</strong> :  
-            <ul>
-              <li>Sommet 1 : deg<sup>out</sup>=3 (→2,3,4) ; deg<sup>in</sup>=2 (←3,4).</li>
-              <li>Sommet 2 : deg<sup>out</sup>=2 (→3,4) ; deg<sup>in</sup>=2 (←1,5).</li>
-              <li>Sommet 3 : deg<sup>out</sup>=1 (→1) ; deg<sup>in</sup>=3 (←1,2,5).</li>
-              <li>Sommet 4 : deg<sup>out</sup>=2 (→1,5) ; deg<sup>in</sup>=3 (←1,2,5).</li>
-              <li>Sommet 5 : deg<sup>out</sup>=3 (→2,3,4) ; deg<sup>in</sup>=1 (←4).</li>
-            </ul>
-            <em>Vérification</em> : somme des deg<sup>out</sup> = 3+2+1+2+3 = <span class="mono">11</span> = nombre total d’arcs <span class="mono">A</span> ; somme des deg<sup>in</sup> = 2+2+3+3+1 = <span class="mono">11</span>.</li>
-
-          <li><strong>Densité</strong> : pour un graphe orienté,  
-            <span class="equation mono">D = A / ( N × (N − 1) )</span>.  
-            Ici, <span class="mono">A = 11</span>, <span class="mono">N(N−1)=5×4=20</span> →  
-            <span class="equation mono">D = 11/20 = 0,55</span>.</li>
-
-          <li><strong>Clique</strong> : le graphe n’est <u>pas</u> une clique orientée (toutes les paires ne sont pas reliées dans les deux sens, et certaines paires sont totalement absentes, ex. (3,4)).  
-              <em>Sous-cliques (vue non orientée)</em> : si l’on ignore le sens pour évaluer la complétude d’un petit sous-graphe, {1,2,3} forme un triangle (1–2, 1–3, 2–3 existent au moins dans un sens), donc une <u>sous-clique de taille 3</u> au sens non orienté.</li>
-        </ol>
-      </section>
+      
     </main>
   </div>
 </div>
