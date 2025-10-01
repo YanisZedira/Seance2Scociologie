@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sociologie des réseaux — Séance 2 (Fiche + Flashcards + Exercices)</title>
-<meta name="description" content="Séance 2 — Concepts de l’analyse de réseau. Fiche fidèle au cours, emplacements d’images pour les schémas/matrices, flashcards flip 3D, exercices avec corrections détaillées." />
+<meta name="description" content="Séance 2 — Concepts de l’analyse de réseau. " />
 <style>
   :root{
     --bg:#0b1020; --surface:#0f172a; --panel:#111b33;
@@ -95,7 +95,7 @@
 <div class="container">
   <header class="hero">
     <h1>Séance 2 — Concepts de l’analyse de réseau</h1>
-    <p class="sub">Théorie des graphes, vocabulaire, densité, clique, connexité, matrices. Fidèle au support UVSQ. :contentReference[oaicite:0]{index=0}</p>
+    <p class="sub">Théorie des graphes, vocabulaire, densité, clique, connexité, matrices.</p>
     <div class="toolbar">
       <button class="btn" id="toggleTheme">🌗 Mode clair/sombre</button>
       <button class="btn warn" id="btnPrint">🖨️ Imprimer / PDF</button>
@@ -160,7 +160,7 @@
           <a href="#exo-schema">Exercice : schéma</a>
           <a href="#exo-matrice">Exercice : matrice (corrigé)</a>
         </div>
-        <p class="meta">Formules et libellés strictement conformes à la diapo. :contentReference[oaicite:1]{index=1}</p>
+        <p class="meta">Formules et libellés strictement conformes à la diapo.</p>
       </div>
 
       <section class="card" id="euler">
@@ -176,7 +176,7 @@
             <li>Graphe <em>connexe</em> avec parcours eulérien ⇔ tous les sommets sont de degré pair sauf éventuellement deux.</li>
             <li>Graphe <em>connexe</em> avec cycle eulérien ⇔ <em>tous</em> les sommets de degré pair.</li>
           </ol>
-          <p class="meta">Rappel diapo 4. :contentReference[oaicite:2]{index=2}</p>
+          <p class="meta">Rappel diapo 4. </p>
         </div>
       </section>
 
@@ -197,9 +197,9 @@
       <section class="card" id="defgraph">
         <div class="copybar"><button class="btn ghost" data-copy="#defgraph">📋 Copier</button></div>
         <h2>Définition & apports de la théorie des graphes</h2>
-        <p><strong>Définition</strong> : discipline mathématique et informatique étudiant les <em>graphes</em>, modèles abstraits de réseaux reliant des objets. :contentReference[oaicite:4]{index=4}</p>
+        <p><strong>Définition</strong> : discipline mathématique et informatique étudiant les <em>graphes</em>, modèles abstraits de réseaux reliant des objets. </p>
         <div class="callout ex">
-          <p><strong>Apports</strong> : visualiser les réseaux, révéler des propriétés structurales, proposer des concepts/mesures ; applicable à des réseaux très hétérogènes (amitiés, livres, citations, Internet…). :contentReference[oaicite:5]{index=5}</p>
+          <p><strong>Apports</strong> : visualiser les réseaux, révéler des propriétés structurales, proposer des concepts/mesures ; applicable à des réseaux très hétérogènes (amitiés, livres, citations, Internet…). </p>
         </div>
       </section>
 
@@ -254,10 +254,10 @@
         <div class="copybar"><button class="btn ghost" data-copy="#types">📋 Copier</button></div>
         <h2>Types de réseaux</h2>
         <div class="callout ex">
-          <p><strong>Réseau complet</strong> : tous les acteurs identifiés, toutes les données collectables (ex. organisation de travail). :contentReference[oaicite:12]{index=12}</p>
+          <p><strong>Réseau complet</strong> : tous les acteurs identifiés, toutes les données collectables (ex. organisation de travail). </p>
         </div>
         <div class="callout ex">
-          <p><strong>Réseau personnel (égocentré)</strong> : centré sur un individu/organisation ; utile si l’ensemble des acteurs n’est pas connu ; fusion possible de plusieurs réseaux égo-centrés. :contentReference[oaicite:13]{index=13}</p>
+          <p><strong>Réseau personnel (égocentré)</strong> : centré sur un individu/organisation ; utile si l’ensemble des acteurs n’est pas connu ; fusion possible de plusieurs réseaux égo-centrés. </p>
         </div>
         <!-- IMAGE À INSÉRER — Exemple récapitulatif (diapo 18) -->
         <img src="images/exemple-recap.png" alt="Exemple récapitulatif de réseau (schéma du cours)" class="illu">
@@ -335,19 +335,19 @@
         <h3>Non-orienté</h3>
         <p>Notons <span class="mono">N</span> le nombre de sommets, <span class="mono">A</span> le nombre d’arêtes réelles :</p>
         <p class="equation mono">D = A / ( N × (N − 1) / 2 )</p>
-        <p class="mono">Exemple diapo : 4 sommets, 4 arêtes → <span class="equation">D = 4/6 = 2/3 = 0,66̇</span>. :contentReference[oaicite:19]{index=19}</p>
+        <p class="mono">Exemple diapo : 4 sommets, 4 arêtes → <span class="equation">D = 4/6 = 2/3 = 0,66̇</span>.</p>
 
         <h3>Orienté</h3>
         <p>Nombre d’arcs maximal <span class="mono">N(N − 1)</span> ; densité :</p>
         <p class="equation mono">D = A / ( N × (N − 1) )</p>
-        <p class="mono">Exemple diapo : N=4, A=5 → <span class="equation">D = 5/12 = 0,4166…</span>. :contentReference[oaicite:20]{index=20}</p>
+        <p class="mono">Exemple diapo : N=4, A=5 → <span class="equation">D = 5/12 = 0,4166…</span>. </p>
       </section>
 
       <!-- ===== Clique ===== -->
       <section class="card" id="clique">
         <div class="copybar"><button class="btn ghost" data-copy="#clique">📋 Copier</button></div>
         <h2>Graphe complet / Clique</h2>
-        <p><strong>Définition</strong> : un graphe où <em>tous</em> les arcs/arêtes possibles existent est une <em>clique</em> (graphe complet). Un sous-ensemble de sommets peut former une <em>sous-clique</em>. :contentReference[oaicite:21]{index=21}</p>
+        <p><strong>Définition</strong> : un graphe où <em>tous</em> les arcs/arêtes possibles existent est une <em>clique</em> (graphe complet). Un sous-ensemble de sommets peut former une <em>sous-clique</em>. </p>
         <!-- IMAGE À INSÉRER — Clique (diapo 30–31) -->
         <img src="images/clique.png" alt="Exemples de graphe complet et de sous-clique" class="illu">
         <img src="images/clique1.png" alt="Exemples de graphe complet et de sous-clique1" class="illu">
@@ -357,7 +357,7 @@
       <section class="card" id="connexite">
         <div class="copybar"><button class="btn ghost" data-copy="#connexite">📋 Copier</button></div>
         <h2>Connexité</h2>
-        <p>Un graphe est <strong>connexe</strong> si, pour chaque couple de sommets, il existe une chaîne permettant de les relier. :contentReference[oaicite:22]{index=22}</p>
+        <p>Un graphe est <strong>connexe</strong> si, pour chaque couple de sommets, il existe une chaîne permettant de les relier. </p>
         <!-- IMAGE À INSÉRER — Connexité (diapo 32–33) -->
         <img src="images/connexite.png" alt="Exemples de graphes connexes et non connexes" class="illu">
         <img src="images/connexite1.png" alt="Exemples de graphes connexes et non connexes" class="illu">
@@ -369,8 +369,8 @@
         <h2>Matrices & analyse des réseaux</h2>
         <div class="callout">
           <ul>
-            <li>Usage fréquent des <strong>matrices</strong> (tableaux) pour calculer des indicateurs (addition, multiplications d’ordres 1, 2, …). :contentReference[oaicite:23]{index=23}</li>
-            <li><strong>Matrice d’adjacence</strong> : ligne <em>i</em> = individu i ; colonne <em>j</em> = individu j. :contentReference[oaicite:24]{index=24}</li>
+            <li>Usage fréquent des <strong>matrices</strong> (tableaux) pour calculer des indicateurs (addition, multiplications d’ordres 1, 2, …). </li>
+            <li><strong>Matrice d’adjacence</strong> : ligne <em>i</em> = individu i ; colonne <em>j</em> = individu j. </li>
           </ul>
         </div>
         <!-- IMAGE À INSÉRER — Matrice 4×4 (diapo 38) -->
@@ -384,24 +384,24 @@
         <h2>Exercice — Schéma récapitulatif (corrigé détaillé)</h2>
         <!-- IMAGE À INSÉRER — Schéma de la diapo 34 -->
         <img src="images/exo-schema.png" alt="Schéma récapitulatif du graphe (diapo 34)" class="illu">
-        <p class="meta">Questions : diapo 35. :contentReference[oaicite:25]{index=25}</p>
+        <p class="meta">Questions : diapo 35. </p>
 
         <h3>Réponses (avec justifications)</h3>
         <ol>
           <li><strong>Ordre du graphe</strong> : égal au <em>nombre de sommets</em> visibles sur le schéma. <br>
-              <em>Démarche</em> : compter chaque nœud étiqueté (A, B, C, …). Le schéma montre de très nombreux sommets ; l’ordre <span class="mono">N</span> est le total de ces étiquettes (ex. si tu comptes 30 étiquettes, alors <span class="mono">N=30</span>). L’ordre ne figure pas textuellement dans la diapo, il dépend du comptage visuel. :contentReference[oaicite:26]{index=26}
+              <em>Démarche</em> : compter chaque nœud étiqueté (A, B, C, …). Le schéma montre de très nombreux sommets ; l’ordre <span class="mono">N</span> est le total de ces étiquettes (ex. si tu comptes 30 étiquettes, alors <span class="mono">N=30</span>). L’ordre ne figure pas textuellement dans la diapo, il dépend du comptage visuel. 
           </li>
           <li><strong>Orienté ou non-orienté ?</strong> : <u>orienté</u>. <br>
-              <em>Justification</em> : la légende “Choice/Mutual choice” indique des flèches (choix dirigés) ; une réciprocité éventuelle est marquée comme “mutual” (donc deux arcs opposés). :contentReference[oaicite:27]{index=27}
+              <em>Justification</em> : la légende “Choice/Mutual choice” indique des flèches (choix dirigés) ; une réciprocité éventuelle est marquée comme “mutual” (donc deux arcs opposés). 
           </li>
           <li><strong>Connexité</strong> : <u>connexe</u> (au sens du graphe sous-jacent non orienté). <br>
-              <em>Justification</em> : en ignorant l’orientation, on observe des chaînes reliant les différents groupes au noyau supérieur (notamment via le nœud central “L” relié à de nombreux sommets), ce qui assure l’existence d’un chemin entre toute paire de sommets. :contentReference[oaicite:28]{index=28}
+              <em>Justification</em> : en ignorant l’orientation, on observe des chaînes reliant les différents groupes au noyau supérieur (notamment via le nœud central “L” relié à de nombreux sommets), ce qui assure l’existence d’un chemin entre toute paire de sommets. 
           </li>
           <li><strong>Individus centraux</strong> : <u>L</u> est particulièrement central ; des sommets intermédiaires (p. ex. <em>K</em>, <em>E</em>) jouent des rôles d’interconnexion entre sous-groupes. <br>
-              <em>Justification</em> : la centralité visuelle (degré élevé et position de passage vers d’autres zones du graphe) est manifeste : de nombreux arcs incidents sur L, et plusieurs chemins entre sous-ensembles passent par L (intermédiarité). :contentReference[oaicite:29]{index=29}
+              <em>Justification</em> : la centralité visuelle (degré élevé et position de passage vers d’autres zones du graphe) est manifeste : de nombreux arcs incidents sur L, et plusieurs chemins entre sous-ensembles passent par L (intermédiarité). 
           </li>
           <li><strong>Clique</strong> : le graphe complet global n’est <u>pas</u> réalisé (toutes les paires ne sont pas reliées dans les deux sens). En revanche, on peut repérer des <u>sous-cliques</u> locales (petits sous-ensembles densément interconnectés par des choix mutuels). <br>
-              <em>Justification</em> : la diapo 30–31 définit la clique et illustre un sous-graphe complet ; sur le schéma, on repère des triades à choix mutuels, mais l’ensemble global est trop grand et clairsemé pour être complet. :contentReference[oaicite:30]{index=30}
+              <em>Justification</em> : la diapo 30–31 définit la clique et illustre un sous-graphe complet ; sur le schéma, on repère des triades à choix mutuels, mais l’ensemble global est trop grand et clairsemé pour être complet. 
           </li>
         </ol>
       </section>
@@ -411,7 +411,7 @@
         <h2>Exercice — Matrice d’adjacence 5×5 (corrigé calculé)</h2>
         <!-- IMAGE À INSÉRER — Matrice 5×5 (diapo 40) -->
         <img src="images/exo-matrice.png" alt="Matrice d’adjacence 5×5 de l’exercice (diapo 40)" class="illu">
-        <p class="meta">Matrice (diapo 40) : :contentReference[oaicite:31]{index=31}</p>
+        <p class="meta">Matrice (diapo 40) : </p>
         <pre class="mono">
 ⎡ 0 1 1 1 0 ⎤
 ⎢ 0 0 1 1 0 ⎥
@@ -473,46 +473,46 @@ $$('[data-copy]').forEach(b=>b.addEventListener('click', async ()=>{
 /* ---------- FLASHCARDS (fidèles à la séance 2) ---------- */
 const CARDS = [
   // Rappels eulériens
-  {q:"Parcours eulérien", a:"Chemin passant une seule fois par chaque arête d’un graphe. :contentReference[oaicite:32]{index=32}"},
-  {q:"Cycle eulérien", a:"Parcours eulérien qui revient au sommet de départ. :contentReference[oaicite:33]{index=33}"},
-  {q:"Théorème d’Euler (parcours)", a:"Graphe connexe admet un parcours eulérien ssi tous les sommets sont pairs sauf éventuellement deux. :contentReference[oaicite:34]{index=34}"},
-  {q:"Théorème d’Euler (cycle)", a:"Graphe connexe admet un cycle eulérien ssi tous les sommets sont pairs. :contentReference[oaicite:35]{index=35}"},
+  {q:"Parcours eulérien", a:"Chemin passant une seule fois par chaque arête d’un graphe."},
+  {q:"Cycle eulérien", a:"Parcours eulérien qui revient au sommet de départ. "},
+  {q:"Théorème d’Euler (parcours)", a:"Graphe connexe admet un parcours eulérien ssi tous les sommets sont pairs sauf éventuellement deux. "},
+  {q:"Théorème d’Euler (cycle)", a:"Graphe connexe admet un cycle eulérien ssi tous les sommets sont pairs. "},
 
   // Sociométrie
-  {q:"Moreno & Jennings — but", a:"Révéler préférences/rejets chez des enfants (n=505) éloignés des parents. :contentReference[oaicite:36]{index=36}"},
+  {q:"Moreno & Jennings — but", a:"Révéler préférences/rejets chez des enfants (n=505) éloignés des parents. "},
 
   // Définition/apports
-  {q:"Théorie des graphes — définition", a:"Discipline math. & info. étudiant les graphes, modèles abstraits de réseaux. :contentReference[oaicite:37]{index=37}"},
-  {q:"Apports des graphes (2)", a:"Visualisation ; propriétés structurales + mesures ; réseaux hétérogènes. :contentReference[oaicite:38]{index=38}"},
+  {q:"Théorie des graphes — définition", a:"Discipline math. & info. étudiant les graphes, modèles abstraits de réseaux.}"},
+  {q:"Apports des graphes (2)", a:"Visualisation ; propriétés structurales + mesures ; réseaux hétérogènes. "},
 
   // Vocabulaire
-  {q:"Sommet & ordre", a:"Sommet = entité ; ordre n = n sommets. :contentReference[oaicite:39]{index=39}"},
-  {q:"Arête vs arc", a:"Arête non orientée ; arc orienté. :contentReference[oaicite:40]{index=40}"},
-  {q:"Orienté / Non-orienté", a:"Non-orienté : réciproque ; orienté : non réciproque. :contentReference[oaicite:41]{index=41}"},
-  {q:"Graphe signé", a:"Affecter +/− à chaque arête/arc. :contentReference[oaicite:42]{index=42}"},
-  {q:"Graphe valué", a:"Affecter une valeur/intensité à chaque arête/arc. :contentReference[oaicite:43]{index=43}"},
+  {q:"Sommet & ordre", a:"Sommet = entité ; ordre n = n sommets."},
+  {q:"Arête vs arc", a:"Arête non orientée ; arc orienté. "},
+  {q:"Orienté / Non-orienté", a:"Non-orienté : réciproque ; orienté : non réciproque. "},
+  {q:"Graphe signé", a:"Affecter +/− à chaque arête/arc. "},
+  {q:"Graphe valué", a:"Affecter une valeur/intensité à chaque arête/arc."},
 
   // Types de réseaux
-  {q:"Réseau complet", a:"Tous acteurs connus ; données complètes (ex. organisation). :contentReference[oaicite:44]{index=44}"},
-  {q:"Réseau égo-centré", a:"Centré sur un ego ; utile si acteurs non tous connus. :contentReference[oaicite:45]{index=45}"},
+  {q:"Réseau complet", a:"Tous acteurs connus ; données complètes (ex. organisation). "},
+  {q:"Réseau égo-centré", a:"Centré sur un ego ; utile si acteurs non tous connus. "},
 
   // Notions structurales
-  {q:"Degré (déf.)", a:"Nombre d’arcs/arêtes incident(e)s au sommet. :contentReference[oaicite:46]{index=46}"},
-  {q:"Demi-degré", a:"Extérieur: arcs sortants ; Intérieur: arcs entrants. :contentReference[oaicite:47]{index=47}"},
-  {q:"Adjacence (déf.)", a:"Deux sommets reliés par un arc/une arête. :contentReference[oaicite:48]{index=48}"},
-  {q:"Chemin & longueur", a:"Suite d’arcs/arêtes ; longueur = nombre d’arcs/arêtes. :contentReference[oaicite:49]{index=49}"},
-  {q:"Distance géodésique", a:"Longueur du plus court des chemins. :contentReference[oaicite:50]{index=50}"},
+  {q:"Degré (déf.)", a:"Nombre d’arcs/arêtes incident(e)s au sommet. "},
+  {q:"Demi-degré", a:"Extérieur: arcs sortants ; Intérieur: arcs entrants. "},
+  {q:"Adjacence (déf.)", a:"Deux sommets reliés par un arc/une arête. "},
+  {q:"Chemin & longueur", a:"Suite d’arcs/arêtes ; longueur = nombre d’arcs/arêtes. "},
+  {q:"Distance géodésique", a:"Longueur du plus court des chemins. "},
 
   // Densité
-  {q:"Densité (non-orienté)", a:"D = A / ( N × (N − 1) / 2 ). :contentReference[oaicite:51]{index=51}"},
-  {q:"Densité (orienté)", a:"D = A / ( N × (N − 1) ). :contentReference[oaicite:52]{index=52}"},
+  {q:"Densité (non-orienté)", a:"D = A / ( N × (N − 1) / 2 )."},
+  {q:"Densité (orienté)", a:"D = A / ( N × (N − 1) ). "},
 
   // Clique & Connexité
-  {q:"Clique", a:"Tous les arcs/arêtes possibles réalisés (graphe complet). :contentReference[oaicite:53]{index=53}"},
-  {q:"Connexité", a:"Pour toute paire de sommets, il existe une chaîne les reliant. :contentReference[oaicite:54]{index=54}"},
+  {q:"Clique", a:"Tous les arcs/arêtes possibles réalisés (graphe complet). "},
+  {q:"Connexité", a:"Pour toute paire de sommets, il existe une chaîne les reliant. "},
 
   // Matrices
-  {q:"Matrice d’adjacence", a:"Ligne i = individu i ; Colonne j = individu j. :contentReference[oaicite:55]{index=55}"},
+  {q:"Matrice d’adjacence", a:"Ligne i = individu i ; Colonne j = individu j. "},
 ];
 
 const els = {
