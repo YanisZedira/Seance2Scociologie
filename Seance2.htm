@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sociologie des réseaux — Séance 2 (Fiche + Flashcards + Exercices)</title>
+<meta name="description" content="Séance 2 — Concepts de l’analyse de réseau. Fiche fidèle au cours, emplacements d’images pour les schémas/matrices, flashcards flip 3D, exercices avec corrections détaillées." />
+<style>
+  :root{
+    --bg:#0b1020; --surface:#0f172a; --panel:#111b33;
+    --text:#e6eaf2; --muted:#a3adc2; --link:#7aa2ff;
+    --accent:#38bdf8; --accent2:#2dd4bf; --warn:#fbbf24; --ok:#34d399; --danger:#fb7185;
+    --chip:#17233e; --border:#1d2a44; --shadow:0 10px 28px rgba(0,0,0,.35);
+    --r:16px; --rsm:12px;
+  }
+  [data-theme="light"]{
+    --bg:#f6f9fc; --surface:#ffffff; --panel:#ffffff;
+    --text:#0f172a; --muted:#475569; --link:#2563eb;
+    --accent:#0ea5e9; --accent2:#14b8a6; --warn:#f59e0b; --ok:#22c55e; --danger:#f43f5e;
+    --chip:#e8eef7; --border:#e5e7eb; --shadow:0 10px 28px rgba(15,23,42,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial}
+  a{color:var(--link);text-decoration:none}
+  .container{max-width:1180px;margin:28px auto 120px;padding:0 18px}
+
+  header.hero{background:linear-gradient(135deg, rgba(122,162,255,.18), rgba(45,212,191,.10));
+    border:1px solid var(--border); border-radius:var(--r); padding:22px; box-shadow:var(--shadow)}
+  .hero h1{margin:0 0 6px; font-size:clamp(24px,4vw,36px)}
+  .sub{margin:0;color:var(--muted)}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .btn{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--text);
+    padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700;box-shadow:var(--shadow);
+    transition:.18s transform,.18s background}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.primary{background:var(--link);color:#fff;border-color:transparent}
+  .btn.warn{background:var(--warn);color:#1b1200;border-color:transparent}
+  .btn.success{background:var(--ok);color:#00160a;border-color:transparent}
+  .btn.ghost{background:transparent}
+
+  .grid{display:grid;gap:22px;margin-top:22px}
+  @media (min-width:1000px){.grid{grid-template-columns:380px 1fr}}
+
+  /* Flashcards */
+  .fc{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);
+    padding:16px;box-shadow:var(--shadow);position:sticky;top:14px;align-self:start}
+  .fc h2{margin:0 0 6px;font-size:22px}
+  .meta{color:var(--muted);font-size:13px}
+  .score{display:flex;gap:8px;align-items:center;margin:10px 0 8px}
+  .pill{background:var(--chip);color:var(--muted);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+  .progress{height:10px;border-radius:999px;background:rgba(122,162,255,.18);border:1px solid var(--border);overflow:hidden}
+  .progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.25s width}
+  .fc-controls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 12px}
+  .toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:var(--surface)}
+  .toggle input{transform:scale(1.15)}
+  .fc-wrap{perspective:1100px}
+  .card3d{position:relative;width:100%;min-height:190px;border:1px solid var(--border);border-radius:16px;
+    transform-style:preserve-3d;transition:transform .6s;cursor:pointer;background:linear-gradient(180deg, rgba(122,162,255,.07), rgba(45,212,191,.07));box-shadow:var(--shadow)}
+  .card3d.flipped{transform:rotateY(180deg)}
+  .face{position:absolute;inset:0;padding:18px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .back{transform:rotateY(180deg)}
+  .q{font-weight:800;font-size:clamp(16px,2.4vw,22px)}
+  .a{font-size:clamp(14px,2vw,18px)}
+  .hint{color:var(--muted);font-size:13px}
+  .fc-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .key{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--chip);border:1px solid var(--border);border-radius:8px;padding:2px 6px;font-size:12px;color:var(--muted)}
+
+  /* Fiche */
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);
+    padding:22px;box-shadow:var(--shadow);position:relative}
+  .card h2{margin-top:0;font-size:clamp(20px,3vw,28px)}
+  .copybar{position:absolute;top:12px;right:12px;display:flex;gap:8px}
+  .badge{display:inline-block;background:var(--chip);border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;margin:6px 6px 0 0}
+  .callout{border-left:6px solid var(--accent);background:linear-gradient(90deg, rgba(56,189,248,.14), transparent);padding:12px 14px;border-radius:var(--rsm);margin:12px 0}
+  .callout.ex{border-left-color:var(--accent2);background:linear-gradient(90deg, rgba(45,212,191,.14), transparent)}
+  .callout.points{border-left-color:#a78bfa;background:linear-gradient(90deg, rgba(167,139,250,.14), transparent)}
+  .hr{height:1px;background:var(--border);margin:14px 0}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .equation{display:inline-block;background:rgba(2,6,23,.08);border:1px solid var(--border);padding:.25em .45em;border-radius:8px}
+  mark{background:linear-gradient(180deg, rgba(250,204,21,.36), rgba(250,204,21,.18));border-radius:4px;padding:0 .2em}
+  .toc{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .toc a{padding:8px 10px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--link);font-weight:700}
+  .illu{display:block;max-width:100%;height:auto;margin:16px auto;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.25)}
+
+  @media print{
+    .fc,.toolbar,.copybar,.toc{display:none!important}
+    .grid{grid-template-columns:1fr}
+    body{background:#fff;color:#000}
+    .card{break-inside:avoid;border-color:#ddd;box-shadow:none}
+  }
+</style>
+</head>
+<body data-theme="dark">
+<div class="container">
+  <header class="hero">
+    <h1>Séance 2 — Concepts de l’analyse de réseau</h1>
+    <p class="sub">Théorie des graphes, vocabulaire, densité, clique, connexité, matrices. Fidèle au support UVSQ. :contentReference[oaicite:0]{index=0}</p>
+    <div class="toolbar">
+      <button class="btn" id="toggleTheme">🌗 Mode clair/sombre</button>
+      <button class="btn warn" id="btnPrint">🖨️ Imprimer / PDF</button>
+      <button class="btn ghost" id="btnGoFC">🃏 Aller aux flashcards</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- ============ FLASHCARDS ============ -->
+    <aside class="fc" id="fc">
+      <h2>Flashcards <span class="sub">• Séance 2</span></h2>
+      <p class="meta">Raccourcis : <span class="key">Espace</span> retourner • <span class="key">J</span> su • <span class="key">K</span> revoir • <span class="key">←/→</span> nav</p>
+
+      <div class="score">
+        <span class="pill">Score : <b id="score">0</b></span>
+        <span class="pill">Carte : <b id="idx">1</b>/<b id="tot">-</b></span>
+        <span class="pill">À revoir : <b id="todo">0</b></span>
+      </div>
+      <div class="progress"><i id="bar"></i></div>
+
+      <div class="fc-controls">
+        <button class="btn" id="prev">⬅️ Préc.</button>
+        <button class="btn" id="flip">🔁 Retourner</button>
+        <button class="btn" id="next">➡️ Suiv.</button>
+        <button class="btn" id="shuffle">🎲 Shuffle</button>
+        <label class="toggle"><input type="checkbox" id="onlyTodo"> Seulement “à revoir”</label>
+        <button class="btn" id="speak">🔊 Lire</button>
+      </div>
+
+      <div class="fc-wrap">
+        <div class="card3d" id="card">
+          <div class="face front">
+            <div class="q" id="q">…</div>
+            <div class="hint">Clique ou <span class="key">Espace</span> pour retourner</div>
+          </div>
+          <div class="face back">
+            <div class="a" id="a">…</div>
+            <div class="fc-actions">
+              <button class="btn success" id="know">👍 J’ai su</button>
+              <button class="btn" id="again">👀 À revoir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ FICHE AVEC EMPLACEMENTS D’IMAGES ============ -->
+    <main>
+      <div class="card">
+        <h2>Sommaire</h2>
+        <div class="toc">
+          <a href="#euler">Rappels eulériens</a>
+          <a href="#socio">Sociométrie</a>
+          <a href="#defgraph">Définition & apports</a>
+          <a href="#vocab">Vocabulaire</a>
+          <a href="#types">Types de réseaux</a>
+          <a href="#struct">Notions structurales</a>
+          <a href="#densite">Densité</a>
+          <a href="#clique">Clique</a>
+          <a href="#connexite">Connexité</a>
+          <a href="#matrices">Matrices</a>
+          <a href="#exo-schema">Exercice : schéma</a>
+          <a href="#exo-matrice">Exercice : matrice (corrigé)</a>
+        </div>
+        <p class="meta">Formules et libellés strictement conformes à la diapo. :contentReference[oaicite:1]{index=1}</p>
+      </div>
+
+      <section class="card" id="euler">
+        <div class="copybar"><button class="btn ghost" data-copy="#euler">📋 Copier</button></div>
+        <h2>Rappels eulériens</h2>
+        <ul>
+          <li><strong>Parcours eulérien</strong> : passe <em>une seule fois</em> par chaque arête.</li>
+          <li><strong>Cycle eulérien</strong> : parcours eulérien qui revient au sommet de départ.</li>
+        </ul>
+        <div class="callout">
+          <p><strong>Théorème d’Euler</strong> :</p>
+          <ol>
+            <li>Graphe <em>connexe</em> avec parcours eulérien ⇔ tous les sommets sont de degré pair sauf éventuellement deux.</li>
+            <li>Graphe <em>connexe</em> avec cycle eulérien ⇔ <em>tous</em> les sommets de degré pair.</li>
+          </ol>
+          <p class="meta">Rappel diapo 4. :contentReference[oaicite:2]{index=2}</p>
+        </div>
+      </section>
+
+      <section class="card" id="socio">
+        <div class="copybar"><button class="btn ghost" data-copy="#socio">📋 Copier</button></div>
+        <h2>Test de sociométrie</h2>
+        <div class="callout">
+          <ul>
+            <li>Moreno & Jennings — n=505 enfants éloignés des parents.</li>
+            <li>Questions : « Avec qui voudrais-tu/ ne voudrais-tu pas habiter ? »</li>
+            <li>Résultats : popularité, réciprocités (dyades/triades/cercles), minorité de choix réciproques, transgressions d’ordre social.</li>
+            <br>
+            <li>PS : Moreno & Jennings SONT DES PSYCHOLOGUES !!!! </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" id="defgraph">
+        <div class="copybar"><button class="btn ghost" data-copy="#defgraph">📋 Copier</button></div>
+        <h2>Définition & apports de la théorie des graphes</h2>
+        <p><strong>Définition</strong> : discipline mathématique et informatique étudiant les <em>graphes</em>, modèles abstraits de réseaux reliant des objets. :contentReference[oaicite:4]{index=4}</p>
+        <div class="callout ex">
+          <p><strong>Apports</strong> : visualiser les réseaux, révéler des propriétés structurales, proposer des concepts/mesures ; applicable à des réseaux très hétérogènes (amitiés, livres, citations, Internet…). :contentReference[oaicite:5]{index=5}</p>
+        </div>
+      </section>
+
+      <!-- ===== Vocabulaire (avec emplacements d’images APRÈS chaque item) ===== -->
+      <section class="card" id="vocab">
+        <div class="copybar"><button class="btn ghost" data-copy="#vocab">📋 Copier</button></div>
+        <h2>Vocabulaire de base</h2>
+
+        <ul>
+          <li><strong>Sommet</strong> : individu/entité. Un graphe d’<em>ordre n</em> possède n sommets.</li>
+          
+        </ul>
+        <!-- IMAGE À INSÉRER — Sommet (diapo 10) -->
+        <img src="images/sommet.png" alt="Schéma illustrant un sommet et l'ordre d'un graphe" class="illu">
+        <center>Dans le graphe ci-dessus, il y a 4 sommets.</center>
+        <br>
+        
+        <ul>
+          <li><strong>Arête</strong> : relation <em>non orientée</em> entre deux sommets. </li>
+        </ul>
+        <!-- IMAGE À INSÉRER — Arête (diapo 11) -->
+        <img src="images/arete.png" alt="Schéma d'une arête non orientée" class="illu">
+        
+        <center>Dans le graphe ci-dessus, il y a 4 arêtes.</center>
+        <br>
+
+        <ul>
+          <li><strong>Arc</strong> : relation <em>orientée</em> entre deux sommets. </li>
+        </ul>
+        <!-- IMAGE À INSÉRER — Arc (diapo 12) -->
+        <img src="images/arc.png" alt="Schéma d'un arc orienté" class="illu">
+        <center>Dans le graphe ci-dessus, il y a 5 arcs.</center>
+        <br>
+
+        <ul>
+          
+          <li> Un graphe est signé si on peut affecter un signe positif ou négatif à
+            chaque arête ou arc.</li>
+        </ul>
+        <!-- IMAGE À INSÉRER — Graphe signé (diapo 14) -->
+        <img src="images/graphe-signe.png" alt="Graphe signé avec liens positifs et négatifs" class="illu">
+
+        <ul>
+          <li>Un graphe est valué si on peut affecter une valeur à chaque arête
+            ou arc.</li>
+        </ul>
+        <!-- IMAGE À INSÉRER — Graphe valué (diapo 15) -->
+        <img src="images/graphe-value.png" alt="Graphe valué : intensités sur les liens" class="illu">
+      </section>
+
+      <section class="card" id="types">
+        <div class="copybar"><button class="btn ghost" data-copy="#types">📋 Copier</button></div>
+        <h2>Types de réseaux</h2>
+        <div class="callout ex">
+          <p><strong>Réseau complet</strong> : tous les acteurs identifiés, toutes les données collectables (ex. organisation de travail). :contentReference[oaicite:12]{index=12}</p>
+        </div>
+        <div class="callout ex">
+          <p><strong>Réseau personnel (égocentré)</strong> : centré sur un individu/organisation ; utile si l’ensemble des acteurs n’est pas connu ; fusion possible de plusieurs réseaux égo-centrés. :contentReference[oaicite:13]{index=13}</p>
+        </div>
+        <!-- IMAGE À INSÉRER — Exemple récapitulatif (diapo 18) -->
+        <img src="images/exemple-recap.png" alt="Exemple récapitulatif de réseau (schéma du cours)" class="illu">
+        <!-- IMAGE À INSÉRER — Réseau égo-centré (diapo 19) -->
+        <img src="images/reseau-egocentre.png" alt="Un exemple de réseau égo-centré" class="illu">
+      </section>
+
+      <!-- ===== Notions structurales (avec images) ===== -->
+      <section class="card" id="struct">
+        <div class="copybar"><button class="btn ghost" data-copy="#struct">📋 Copier</button></div>
+        <h2>Notions structurales</h2>
+
+        <ul>
+          <li>Un graphe est valué si on peut affecter une valeur à chaque arête
+            ou arc.</li>
+        </ul>
+        <!-- IMAGE À INSÉRER — Degré (diapo 21) -->
+        <img src="images/degre.png" alt="Exemple de degrés des sommets" class="illu">
+        <center><ul>▶A est un sommet de degré 3</ul></center>
+          <center><ul>▶B est un sommet de degré 2</ul></center>
+            <center><ul>▶C est un sommet de degré 1</ul></center>
+            <center><ul>▶D est un sommet de degré 2</ul></center> 
+          <br>
+        <ul>
+          <li>Dans le cas de graphe orienté :<br>
+            <br>
+            <ul>▶ Le demi-degré extérieur d’un sommet correspond au nombre
+            d’arcs qui en partent.</ul><br>
+            <ul>▶ Le demi-degré intérieur d’un sommet correspond au nombre
+              d’arcs qui y arrivent.</ul></li>
+        </ul>
+        <!-- IMAGE À INSÉRER — Demi-degré (diapo 22) -->
+        <img src="images/demi-degre.png" alt="Demi-degré intérieur/extérieur sur graphe orienté" class="illu">
+        <center><ul>▶ A a un demi-degré extérieur de 3</ul></center>
+        <center><ul>▶ A a un demi-degré intérieur de 1</ul></center> <br>
+        
+        <ul>
+          <li><strong>Adjacence</strong> : deux sommets sont adjacents s’il existe un arc/arête entre eux.</li>
+          
+          
+
+        </ul>
+        <!-- IMAGE À INSÉRER — Adjacence (diapo 23) -->
+        <img src="images/adjacence.png" alt="Exemple d'adjacence/non-adjacence" class="illu">
+        <center><ul>▶ A et B sont adjacents</ul></center>
+          <center><ul>   ▶ B et C ne sont pas adjacents</ul></center> <br>
+
+          <center><ul>Lorsque deux sommets ne sont pas adjacents, il faut déterminer s’il
+            existe un chemin s’ils sont reliés par une suite d’arcs/arête.</ul></center><br>
+            
+            <center>▶ B et C ne sont pas adjacents</center>
+            <center>▶ Il existe deux chemins entre B et C</center><br>
+            <center>La longueur d’un chemin consiste en le nombre d’arcs/arêtes
+              nécessaire pour relier deux sommets.</center><br>
+            
+            
+
+        <ul>
+          
+          <li><strong>Distance géodésique</strong> : longueur du plus court des chemins.</li>
+        </ul>
+        
+        <!-- IMAGE À INSÉRER — Géodésique (diapo 25) -->
+        <img src="images/geodesique.png" alt="Distance géodésique entre B et C" class="illu">
+        <center>La distance géodésique entre B et C est de 2.</center><br
+      </section>
+
+      <!-- ===== Densité ===== -->
+      <section class="card" id="densite">
+        <div class="copybar"><button class="btn ghost" data-copy="#densite">📋 Copier</button></div>
+        <h2>Densité d’un graphe — formules</h2>
+        <!-- IMAGE À INSÉRER — Densité (diapo 26–29) -->
+        <img src="images/densite.png" alt="Illustrations de la densité (non-orienté & orienté)" class="illu">
+
+        <h3>Non-orienté</h3>
+        <p>Notons <span class="mono">N</span> le nombre de sommets, <span class="mono">A</span> le nombre d’arêtes réelles :</p>
+        <p class="equation mono">D = A / ( N × (N − 1) / 2 )</p>
+        <p class="mono">Exemple diapo : 4 sommets, 4 arêtes → <span class="equation">D = 4/6 = 2/3 = 0,66̇</span>. :contentReference[oaicite:19]{index=19}</p>
+
+        <h3>Orienté</h3>
+        <p>Nombre d’arcs maximal <span class="mono">N(N − 1)</span> ; densité :</p>
+        <p class="equation mono">D = A / ( N × (N − 1) )</p>
+        <p class="mono">Exemple diapo : N=4, A=5 → <span class="equation">D = 5/12 = 0,4166…</span>. :contentReference[oaicite:20]{index=20}</p>
+      </section>
+
+      <!-- ===== Clique ===== -->
+      <section class="card" id="clique">
+        <div class="copybar"><button class="btn ghost" data-copy="#clique">📋 Copier</button></div>
+        <h2>Graphe complet / Clique</h2>
+        <p><strong>Définition</strong> : un graphe où <em>tous</em> les arcs/arêtes possibles existent est une <em>clique</em> (graphe complet). Un sous-ensemble de sommets peut former une <em>sous-clique</em>. :contentReference[oaicite:21]{index=21}</p>
+        <!-- IMAGE À INSÉRER — Clique (diapo 30–31) -->
+        <img src="images/clique.png" alt="Exemples de graphe complet et de sous-clique" class="illu">
+        <img src="images/clique1.png" alt="Exemples de graphe complet et de sous-clique1" class="illu">
+      </section>
+
+      <!-- ===== Connexité ===== -->
+      <section class="card" id="connexite">
+        <div class="copybar"><button class="btn ghost" data-copy="#connexite">📋 Copier</button></div>
+        <h2>Connexité</h2>
+        <p>Un graphe est <strong>connexe</strong> si, pour chaque couple de sommets, il existe une chaîne permettant de les relier. :contentReference[oaicite:22]{index=22}</p>
+        <!-- IMAGE À INSÉRER — Connexité (diapo 32–33) -->
+        <img src="images/connexite.png" alt="Exemples de graphes connexes et non connexes" class="illu">
+        <img src="images/connexite1.png" alt="Exemples de graphes connexes et non connexes" class="illu">
+      </section>
+
+      <!-- ===== Matrices ===== -->
+      <section class="card" id="matrices">
+        <div class="copybar"><button class="btn ghost" data-copy="#matrices">📋 Copier</button></div>
+        <h2>Matrices & analyse des réseaux</h2>
+        <div class="callout">
+          <ul>
+            <li>Usage fréquent des <strong>matrices</strong> (tableaux) pour calculer des indicateurs (addition, multiplications d’ordres 1, 2, …). :contentReference[oaicite:23]{index=23}</li>
+            <li><strong>Matrice d’adjacence</strong> : ligne <em>i</em> = individu i ; colonne <em>j</em> = individu j. :contentReference[oaicite:24]{index=24}</li>
+          </ul>
+        </div>
+        <!-- IMAGE À INSÉRER — Matrice 4×4 (diapo 38) -->
+        <img src="images/matrice-4x4.png" alt="Exemple de matrice d’adjacence 4×4" class="illu">
+        <!-- IMAGE À INSÉRER — Graphe + matrice (diapo 39) -->
+        <img src="images/graphe-et-matrice.png" alt="Un graphe et sa matrice d’adjacence 4×4" class="illu">
+      </section>
+
+      <!-- ===== Exercice 1 : Schéma récapitulatif ===== -->
+      <section class="card" id="exo-schema">
+        <h2>Exercice — Schéma récapitulatif (corrigé détaillé)</h2>
+        <!-- IMAGE À INSÉRER — Schéma de la diapo 34 -->
+        <img src="images/exo-schema.png" alt="Schéma récapitulatif du graphe (diapo 34)" class="illu">
+        <p class="meta">Questions : diapo 35. :contentReference[oaicite:25]{index=25}</p>
+
+        <h3>Réponses (avec justifications)</h3>
+        <ol>
+          <li><strong>Ordre du graphe</strong> : égal au <em>nombre de sommets</em> visibles sur le schéma. <br>
+              <em>Démarche</em> : compter chaque nœud étiqueté (A, B, C, …). Le schéma montre de très nombreux sommets ; l’ordre <span class="mono">N</span> est le total de ces étiquettes (ex. si tu comptes 30 étiquettes, alors <span class="mono">N=30</span>). L’ordre ne figure pas textuellement dans la diapo, il dépend du comptage visuel. :contentReference[oaicite:26]{index=26}
+          </li>
+          <li><strong>Orienté ou non-orienté ?</strong> : <u>orienté</u>. <br>
+              <em>Justification</em> : la légende “Choice/Mutual choice” indique des flèches (choix dirigés) ; une réciprocité éventuelle est marquée comme “mutual” (donc deux arcs opposés). :contentReference[oaicite:27]{index=27}
+          </li>
+          <li><strong>Connexité</strong> : <u>connexe</u> (au sens du graphe sous-jacent non orienté). <br>
+              <em>Justification</em> : en ignorant l’orientation, on observe des chaînes reliant les différents groupes au noyau supérieur (notamment via le nœud central “L” relié à de nombreux sommets), ce qui assure l’existence d’un chemin entre toute paire de sommets. :contentReference[oaicite:28]{index=28}
+          </li>
+          <li><strong>Individus centraux</strong> : <u>L</u> est particulièrement central ; des sommets intermédiaires (p. ex. <em>K</em>, <em>E</em>) jouent des rôles d’interconnexion entre sous-groupes. <br>
+              <em>Justification</em> : la centralité visuelle (degré élevé et position de passage vers d’autres zones du graphe) est manifeste : de nombreux arcs incidents sur L, et plusieurs chemins entre sous-ensembles passent par L (intermédiarité). :contentReference[oaicite:29]{index=29}
+          </li>
+          <li><strong>Clique</strong> : le graphe complet global n’est <u>pas</u> réalisé (toutes les paires ne sont pas reliées dans les deux sens). En revanche, on peut repérer des <u>sous-cliques</u> locales (petits sous-ensembles densément interconnectés par des choix mutuels). <br>
+              <em>Justification</em> : la diapo 30–31 définit la clique et illustre un sous-graphe complet ; sur le schéma, on repère des triades à choix mutuels, mais l’ensemble global est trop grand et clairsemé pour être complet. :contentReference[oaicite:30]{index=30}
+          </li>
+        </ol>
+      </section>
+
+      <!-- ===== Exercice 2 : Matrice 5×5 (corrigé calculé) ===== -->
+      <section class="card" id="exo-matrice">
+        <h2>Exercice — Matrice d’adjacence 5×5 (corrigé calculé)</h2>
+        <!-- IMAGE À INSÉRER — Matrice 5×5 (diapo 40) -->
+        <img src="images/exo-matrice.png" alt="Matrice d’adjacence 5×5 de l’exercice (diapo 40)" class="illu">
+        <p class="meta">Matrice (diapo 40) : :contentReference[oaicite:31]{index=31}</p>
+        <pre class="mono">
+⎡ 0 1 1 1 0 ⎤
+⎢ 0 0 1 1 0 ⎥
+⎢ 1 0 0 0 0 ⎥
+⎢ 1 0 0 0 1 ⎥
+⎣ 0 1 1 1 0 ⎦
+        </pre>
+
+        <h3>Corrections détaillées</h3>
+        <ol>
+          <li><strong>Orienté ou non-orienté ?</strong> : <u>orienté</u>.  
+              <em>Justification</em> : la matrice n’est pas symétrique (ex. a<sub>1,2</sub>=1 alors que a<sub>2,1</sub>=0), donc les relations ne sont pas toutes réciproques.</li>
+
+          <li><strong>Représentation du graphe</strong> : 5 sommets {1,2,3,4,5} ; arcs sortants selon chaque ligne.  
+              Exemple (extraits) : 1→{2,3,4}, 2→{3,4}, 3→{1}, 4→{1,5}, 5→{2,3,4}.</li>
+
+          <li><strong>Ordre du graphe</strong> : <span class="mono">N = 5</span> (5 lignes/colonnes).</li>
+
+          <li><strong>Degrés (orienté : ext./int.)</strong> :  
+            <ul>
+              <li>Sommet 1 : deg<sup>out</sup>=3 (→2,3,4) ; deg<sup>in</sup>=2 (←3,4).</li>
+              <li>Sommet 2 : deg<sup>out</sup>=2 (→3,4) ; deg<sup>in</sup>=2 (←1,5).</li>
+              <li>Sommet 3 : deg<sup>out</sup>=1 (→1) ; deg<sup>in</sup>=3 (←1,2,5).</li>
+              <li>Sommet 4 : deg<sup>out</sup>=2 (→1,5) ; deg<sup>in</sup>=3 (←1,2,5).</li>
+              <li>Sommet 5 : deg<sup>out</sup>=3 (→2,3,4) ; deg<sup>in</sup>=1 (←4).</li>
+            </ul>
+            <em>Vérification</em> : somme des deg<sup>out</sup> = 3+2+1+2+3 = <span class="mono">11</span> = nombre total d’arcs <span class="mono">A</span> ; somme des deg<sup>in</sup> = 2+2+3+3+1 = <span class="mono">11</span>.</li>
+
+          <li><strong>Densité</strong> : pour un graphe orienté,  
+            <span class="equation mono">D = A / ( N × (N − 1) )</span>.  
+            Ici, <span class="mono">A = 11</span>, <span class="mono">N(N−1)=5×4=20</span> →  
+            <span class="equation mono">D = 11/20 = 0,55</span>.</li>
+
+          <li><strong>Clique</strong> : le graphe n’est <u>pas</u> une clique orientée (toutes les paires ne sont pas reliées dans les deux sens, et certaines paires sont totalement absentes, ex. (3,4)).  
+              <em>Sous-cliques (vue non orientée)</em> : si l’on ignore le sens pour évaluer la complétude d’un petit sous-graphe, {1,2,3} forme un triangle (1–2, 1–3, 2–3 existent au moins dans un sens), donc une <u>sous-clique de taille 3</u> au sens non orienté.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+/* ---------- UI utils ---------- */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+$('#toggleTheme')?.addEventListener('click', ()=>{
+  document.body.setAttribute('data-theme', document.body.getAttribute('data-theme')==='light'?'dark':'light');
+});
+$('#btnPrint')?.addEventListener('click', ()=> window.print());
+$('#btnGoFC')?.addEventListener('click', ()=> $('#fc')?.scrollIntoView({behavior:'smooth'}));
+$$('[data-copy]').forEach(b=>b.addEventListener('click', async ()=>{
+  const sel = b.getAttribute('data-copy'); const el = document.querySelector(sel);
+  if(!el) return;
+  try{ await navigator.clipboard.writeText(el.innerText.trim()); b.textContent='✅ Copié !'; setTimeout(()=>b.textContent='📋 Copier',1200);}
+  catch{ b.textContent='❌'; setTimeout(()=>b.textContent='📋 Copier',1200); }
+}));
+
+/* ---------- FLASHCARDS (fidèles à la séance 2) ---------- */
+const CARDS = [
+  // Rappels eulériens
+  {q:"Parcours eulérien", a:"Chemin passant une seule fois par chaque arête d’un graphe. :contentReference[oaicite:32]{index=32}"},
+  {q:"Cycle eulérien", a:"Parcours eulérien qui revient au sommet de départ. :contentReference[oaicite:33]{index=33}"},
+  {q:"Théorème d’Euler (parcours)", a:"Graphe connexe admet un parcours eulérien ssi tous les sommets sont pairs sauf éventuellement deux. :contentReference[oaicite:34]{index=34}"},
+  {q:"Théorème d’Euler (cycle)", a:"Graphe connexe admet un cycle eulérien ssi tous les sommets sont pairs. :contentReference[oaicite:35]{index=35}"},
+
+  // Sociométrie
+  {q:"Moreno & Jennings — but", a:"Révéler préférences/rejets chez des enfants (n=505) éloignés des parents. :contentReference[oaicite:36]{index=36}"},
+
+  // Définition/apports
+  {q:"Théorie des graphes — définition", a:"Discipline math. & info. étudiant les graphes, modèles abstraits de réseaux. :contentReference[oaicite:37]{index=37}"},
+  {q:"Apports des graphes (2)", a:"Visualisation ; propriétés structurales + mesures ; réseaux hétérogènes. :contentReference[oaicite:38]{index=38}"},
+
+  // Vocabulaire
+  {q:"Sommet & ordre", a:"Sommet = entité ; ordre n = n sommets. :contentReference[oaicite:39]{index=39}"},
+  {q:"Arête vs arc", a:"Arête non orientée ; arc orienté. :contentReference[oaicite:40]{index=40}"},
+  {q:"Orienté / Non-orienté", a:"Non-orienté : réciproque ; orienté : non réciproque. :contentReference[oaicite:41]{index=41}"},
+  {q:"Graphe signé", a:"Affecter +/− à chaque arête/arc. :contentReference[oaicite:42]{index=42}"},
+  {q:"Graphe valué", a:"Affecter une valeur/intensité à chaque arête/arc. :contentReference[oaicite:43]{index=43}"},
+
+  // Types de réseaux
+  {q:"Réseau complet", a:"Tous acteurs connus ; données complètes (ex. organisation). :contentReference[oaicite:44]{index=44}"},
+  {q:"Réseau égo-centré", a:"Centré sur un ego ; utile si acteurs non tous connus. :contentReference[oaicite:45]{index=45}"},
+
+  // Notions structurales
+  {q:"Degré (déf.)", a:"Nombre d’arcs/arêtes incident(e)s au sommet. :contentReference[oaicite:46]{index=46}"},
+  {q:"Demi-degré", a:"Extérieur: arcs sortants ; Intérieur: arcs entrants. :contentReference[oaicite:47]{index=47}"},
+  {q:"Adjacence (déf.)", a:"Deux sommets reliés par un arc/une arête. :contentReference[oaicite:48]{index=48}"},
+  {q:"Chemin & longueur", a:"Suite d’arcs/arêtes ; longueur = nombre d’arcs/arêtes. :contentReference[oaicite:49]{index=49}"},
+  {q:"Distance géodésique", a:"Longueur du plus court des chemins. :contentReference[oaicite:50]{index=50}"},
+
+  // Densité
+  {q:"Densité (non-orienté)", a:"D = A / ( N × (N − 1) / 2 ). :contentReference[oaicite:51]{index=51}"},
+  {q:"Densité (orienté)", a:"D = A / ( N × (N − 1) ). :contentReference[oaicite:52]{index=52}"},
+
+  // Clique & Connexité
+  {q:"Clique", a:"Tous les arcs/arêtes possibles réalisés (graphe complet). :contentReference[oaicite:53]{index=53}"},
+  {q:"Connexité", a:"Pour toute paire de sommets, il existe une chaîne les reliant. :contentReference[oaicite:54]{index=54}"},
+
+  // Matrices
+  {q:"Matrice d’adjacence", a:"Ligne i = individu i ; Colonne j = individu j. :contentReference[oaicite:55]{index=55}"},
+];
+
+const els = {
+  q: $('#q'), a: $('#a'), card: $('#card'),
+  score: $('#score'), idx: $('#idx'), tot: $('#tot'), todo: $('#todo'), bar: $('#bar'),
+  onlyTodo: $('#onlyTodo')
+};
+
+let state = {
+  order: CARDS.map((_,i)=>i),
+  i: 0, score: 0, again: new Set(), flipped: false, onlyTodo: false
+};
+els.tot.textContent = state.order.length;
+
+function curIndex(){ return state.order[state.i] ?? 0; }
+function curCard(){ return CARDS[curIndex()]; }
+
+function render(){
+  const c = curCard();
+  els.q.innerHTML = c.q;   // pour garder les petites notations
+  els.a.innerHTML = c.a;
+  els.idx.textContent = (state.i+1).toString();
+  els.score.textContent = state.score.toString();
+  els.todo.textContent = state.again.size.toString();
+  els.bar.style.width = Math.max(4,(state.i/state.order.length)*100).toFixed(1)+'%';
+  state.flipped=false; els.card.classList.remove('flipped');
+}
+function next(){ state.i = (state.i+1) % state.order.length; render(); }
+function prev(){ state.i = (state.i-1+state.order.length)%state.order.length; render(); }
+function flip(){ state.flipped=!state.flipped; els.card.classList.toggle('flipped'); }
+function shuffle(){
+  for(let i=state.order.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [state.order[i],state.order[j]]=[state.order[j],state.order[i]];
+  }
+  state.i=0; render();
+}
+function filterTodo(on){
+  state.onlyTodo = on;
+  state.order = on ? Array.from(state.again) : CARDS.map((_,i)=>i);
+  if(state.order.length===0){ state.order=[0]; state.i=0; } else { state.i=0; }
+  render();
+}
+function speak(t){
+  try{ const u=new SpeechSynthesisUtterance(t); u.lang='fr-FR'; speechSynthesis.cancel(); speechSynthesis.speak(u);}catch{}
+}
+
+$('#flip')?.addEventListener('click', flip);
+$('#card')?.addEventListener('click', flip);
+$('#next')?.addEventListener('click', next);
+$('#prev')?.addEventListener('click', prev);
+$('#shuffle')?.addEventListener('click', shuffle);
+$('#speak')?.addEventListener('click', ()=> speak(state.flipped?els.a.textContent:els.q.textContent));
+els.onlyTodo?.addEventListener('change', e=> filterTodo(e.target.checked));
+$('#know')?.addEventListener('click', ()=>{ state.score++; state.again.delete(curIndex()); next(); });
+$('#again')?.addEventListener('click', ()=>{ state.again.add(curIndex()); next(); });
+
+window.addEventListener('keydown', (e)=>{
+  if(['INPUT','TEXTAREA'].includes((e.target||{}).tagName)) return;
+  if(e.code==='Space'){ e.preventDefault(); flip(); }
+  else if(e.key==='ArrowRight'){ next(); }
+  else if(e.key==='ArrowLeft'){ prev(); }
+  else if(e.key.toLowerCase()==='j'){ state.score++; state.again.delete(curIndex()); next(); }
+  else if(e.key.toLowerCase()==='k'){ state.again.add(curIndex()); next(); }
+});
+
+render();
+</script>
+</body>
+</html>
