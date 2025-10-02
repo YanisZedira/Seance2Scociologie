@@ -88,6 +88,49 @@
     .grid{grid-template-columns:1fr}
     body{background:#fff;color:#000}
     .card{break-inside:avoid;border-color:#ddd;box-shadow:none}
+
+    .faq-question {
+  background-color: var(--link);
+  color: white;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: var(--rsm);
+}
+
+.faq-answer {
+  display: none;
+  background-color: var(--surface);
+  padding: 12px;
+  margin-top: 0;
+  border-left: 4px solid var(--accent2);
+  border-radius: 0 0 var(--rsm) var(--rsm);
+
+  q-item {margin-bottom: 10px;}
+  .q-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .q-rep {
+    display: none;
+    padding: 10px;
+    background: #f1f3f5;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 0 6px 6px;
+  }
+}
+
   }
 </style>
 </head>
@@ -407,6 +450,120 @@
         <center>Un graphe et sa matrice d'adjacence</center>
       </section>
 
+      <section class="card" id="exercice1">
+        <h2>EXERCICE 1 – Analyse du graphe</h2>
+        <img src="images/exercice1.png" alt="Graphe de l'exercice 1" class="illu">
+      
+        <div class="questions">
+          <div class="q-item">
+            <button class="q-btn">1️⃣ Quel est l’ordre de ce graphe ?</button>
+            <div class="q-rep">
+              L’ordre = nombre de sommets. En comptant soigneusement chaque cercle et chaque rectangle du graphe, on obtient <strong>44 sommets</strong>.
+            </div>
+          </div>
+      
+          <div class="q-item">
+            <button class="q-btn">2️⃣ Le graphe est-il orienté ou non orienté ?</button>
+            <div class="q-rep">
+              On voit des flèches (“Choice”) et des doubles flèches (“Mutual Choice”), ce qui indique un sens. 
+              <strong>Le graphe est orienté.</strong>
+            </div>
+          </div>
+      
+          <div class="q-item">
+            <button class="q-btn">3️⃣ Le graphe est-il connexe ou non connexe ?</button>
+            <div class="q-rep">
+              En ignorant le sens des arcs, chaque sommet peut être relié aux autres via L, K ou E. 
+              <strong>Le graphe est connexe.</strong>
+            </div>
+          </div>
+      
+          <div class="q-item">
+            <button class="q-btn">4️⃣ Y a-t-il des individus particulièrement centraux ? Lesquels ?</button>
+            <div class="q-rep">
+              <strong>L</strong> est le sommet le plus central (degré et intermédiarité très élevés). 
+              <strong>K</strong> et <strong>E</strong> sont aussi des nœuds pivots reliant des sous-groupes.
+            </div>
+          </div>
+      
+          <div class="q-item">
+            <button class="q-btn">5️⃣ Ce graphe est-il une clique ? Contient-il des cliques ?</button>
+            <div class="q-rep">
+              Ce n’est pas une clique globale (toutes les paires ne sont pas reliées), 
+              mais il existe des <strong>sous-cliques locales</strong> (petits groupes fortement reliés).
+            </div>
+          </div>
+
+          <section class="card" id="exercice2">
+            <h2>EXERCICE 2 – Analyse d’une matrice</h2>
+            
+          
+            <div class="questions">
+              <div class="q-item">
+                <button class="q-btn">1️⃣ Le graphe associé à cette matrice est-il orienté ou non-orienté ?</button>
+                <div class="q-rep">
+                  <p>Pour savoir si le graphe est orienté ou non-orienté, on regarde si la <strong>matrice est symétrique</strong>.</p>
+              
+                  <ul>
+                    <li>➡️ Si la case (i, j) a la même valeur que la case (j, i), alors la matrice est symétrique → <strong>graphe non orienté</strong>.</li>
+                    <li>➡️ Si ce n’est pas le cas, alors le graphe est <strong>orienté</strong>.</li>
+                  </ul>
+              
+                  <p>Exemple ici :</p>
+                  <ul>
+                    <li>La case (1, 3) = 1</li>
+                    <li>Mais la case (3, 1) = 0</li>
+                  </ul>
+              
+                  <p>Donc <strong>la matrice n’est pas symétrique</strong>.</p>
+              
+                  <p><strong>Conclusion :</strong> Le graphe est <strong>orienté</strong>.</p>
+                </div>
+              </div>
+              
+          
+              <div class="q-item">
+                <button class="q-btn">2️⃣ Représentez le graphe</button>
+                <div class="q-rep">
+                  a voir avec la prof
+                </div>
+              </div>
+          
+              <div class="q-item">
+                <button class="q-btn">3️⃣ Quel est l’ordre du graphe ?</button>
+                <div class="q-rep">
+                  Il y a 5 sommets (5 lignes) ➜ <strong>Ordre = 5</strong>
+                </div>
+              </div>
+          
+              <div class="q-item">
+                <button class="q-btn">4️⃣ Quel est le degré de ce graphe ?</button>
+                <div class="q-rep">
+                  Le graphe est orienté. Le degré total correspond au <strong>nombre d’arcs</strong> dans la matrice :<br>
+    ➜ Il y a <strong>11 arcs</strong>, donc le <strong>degré du graphe est 11</strong>
+                </div>
+              </div>
+          
+              <div class="q-item">
+                <button class="q-btn">5️⃣ Quelle est la densité de ce graphe ?</button>
+                <div class="q-rep">
+                  <img src="images/formule_densite_oriente.png" alt="Graphe de l'exercice 1" class="illu"><br>
+                  <center>donc densité = 0.55</center>
+                </div>
+              </div>
+          
+              <div class="q-item">
+                <button class="q-btn">6️⃣ Ce graphe est-il une clique ?</button>
+                <div class="q-rep">
+                  Non, le graphe n’est pas une clique car :<br><br>Une clique est un sous-graphe complet, où chaque sommet est relié à tous les autres.<br><br>
+
+                  Hors, ici aucun sommet n’est relié à tous les autres dans les deux sens (le graphe est orienté)..
+                </div>
+              </div>
+            </div>
+          </section>
+          
+
       
     </main>
   </div>
@@ -539,6 +696,15 @@ window.addEventListener('keydown', (e)=>{
 });
 
 render();
+
+/* ---------- Toggle réponses exercice ---------- */
+document.querySelectorAll('.q-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const rep = btn.nextElementSibling;
+      rep.style.display = (rep.style.display === 'block') ? 'none' : 'block';
+    });
+  });
+
 </script>
 </body>
 </html>
